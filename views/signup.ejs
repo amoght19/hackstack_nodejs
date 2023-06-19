@@ -1,0 +1,18 @@
+<%- include("partials/header") -%>
+<div class="auth_page">
+  <form action="/signUp" class="auth" method="post">
+    <h1><%- RestrauntName -%></h1>
+    <input
+      type="text"
+      placeholder="Username"
+      name="Username"
+      autocomplete="off"
+    />
+    <input type="email" placeholder="Email" name="Email" autocomplete="off" />
+    <input type="password" placeholder="Password" name="Password" />
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <a href="/">Already a user ? Sign In here</a>
+</div>
+<%- include("partials/finisher") -%>

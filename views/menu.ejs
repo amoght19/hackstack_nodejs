@@ -1,0 +1,41 @@
+<%- include("partials/header") -%>
+<div class="menu-container">
+  <div class="menu-buttons">
+    <a href="order/orders"><button>Order history</button></a> <a href="/logout" ><button>Logout</button></a>
+  </div>
+  <h1>Menu</h1>
+  <div class="menu-content">
+    <div class="menu-items">
+      <div class="search">
+        <input placeholder="Search" id="searchInput" type="text">
+        <button class="search-button" ><img src="/assets/searchIcon.svg" ></button>
+      </div>
+        <% for(var i=0;i<menu.length;++i){ %>
+        <div class="menu-item">
+            <img src=<%= menu[i].image %> alt="Image" />
+            <div class="menu-info">
+                <p class="menu-name" > <%= menu[i].name %> </p>
+                <p class="menu-price" ><%= menu[i].price %></p>
+            </div>
+            <div class="menu-options">
+                <input placeholder="Qunatity" type="number" />
+                <button class="addToCartBtn" >Add To cart</button>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    <div class="price-container">
+      <h1>Order Summary</h1>
+      <div class="order-details">
+        <div class="order-detail"> 
+          <h1 class="order-item" >Name</h1> 
+          <h1 class="order-price" >Price</h1>
+          <h1 class="order-quantity" >Qunatity </h1>
+        </div>
+      </div>
+      <div style="display: flex;" >Total Amount : <p id="money"  >$0</p></div>
+        <button class="pay-button"  >Pay</button>
+  </div>
+</div>
+
+<%- include("partials/finisher") -%>

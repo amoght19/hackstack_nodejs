@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+<div class="userInfo-container">
+  <h1 style="text-align: left">Past Orders</h1>
+  <div class="all-orders">
+    <% if (orders.length > 0) { %> <% orders.forEach((item) => { %>
+    <div class="order-info">
+      <p class="order-date">Date : <%= item.date %></p>
+      <div class="allOrder-items">
+        <% item.orderList.forEach(({name,quantity,price,totalPrice}) => { %>
+        <div class="allOrder-item">
+          <p><%= name %></p>
+          <p>Quantity : <%= quantity %></p>
+          <p>Price : <%= price %></p>
+          <p>ItemTotal : <%= totalPrice %></p>
+        </div>
+        <% }) %>
+      </div>
+      <h2 class="order-total">Total : <%= item.totalOrderPrice %></h2>
+    </div>
+    <% }); %> <% } else { %>
+    <div>No orders yet</div>
+    <% } %>
+  </div>
+</div>
+<%- include("partials/finisher") -%>
